@@ -20,8 +20,11 @@ MediCoFood
 <br><br>
 
 ## 1. Collaborator
-- 팀장 : 황지원
-- 팀원 : 강은지, 김동신, 김태현, 조진우, 정수연
+### 역할
+- 황지원 (PM)
+- 강은지 (Back-end) , 김동신 (Back-end)
+- 김태현 (DB), 조진우 (DB),
+- 정수연 (기획,Front-end)
 
 <br><br>
 
@@ -32,49 +35,43 @@ MediCoFood
       <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white">&nbsp;
 &nbsp;<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/JavaScript-E2BD40?style=flat-square&logo=JavaScript&logoColor=white">&nbsp;
-  
+  <br>
 - Back-End
 <br><br>
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/Mysql-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
+  <br>
+- System Architecture
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/0080f043-7789-4255-9f80-b56fe61904c8)|
   |---|
+  <br>
+  
+  |<div align='center'>기획의도</div>|
+  |---|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/086e044a-41ce-45d2-ac98-f92f112d99e7)|
+
+  
+  <br>
+  
+  |<div align='center'>구현</div>|
+  |---|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/a57055cc-75dc-4fe0-ad16-2d31444861a7)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/a341c3a8-8e6d-4189-9ba3-08d94593c78c)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/aad85d80-9cad-4cac-bd88-3b1bff246762)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/d3b7f8d0-cc33-435e-9552-2b8169ba543c)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/a211837a-d136-488d-bd36-a3298ca36c83)|
+
 
 
   <br>
-  
-  | 운동 자세 검출 예시 |
+  |<div align='center'>시행 착오 / 개선 사항</div>|
   |---|
+  ||
 
 
-  | 음식 추천 예시 |
-  |---|
-
-
-  | 운동 예시 |
-  |---|
-
-
-  <br>
-  
-  |시행 착오 / 개선 사항|
-  |---|
-  |<div align='center'>시행 착오</div>|
-  |![image](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/8abcb693-79d5-466c-b2c4-b9c6624c5c8a)|
-  |- `Yolo v8 Small` 모델링시, `Data InBalance` 문제 때문에, 데이터 증강을 수행 후, 어느정도의 `InBalance`를 해결하였습니다.
-| - `MediaPipe`로 운동 자세를 검출할 때, 초기에 발생한 다양한 어려움들을 극복하기 위해 끊임없는 실험과 수정 작업이 필요했습니다. 이러한 경험을 통해 데이터 다양성, 후처리 기술의 활용, 적절한 임계값 설정, 모델의 업데이트에 대한 중요성을 깨달았습니다. 이러한 과정을 통해 프로젝트를 성공적으로 완료할 수 있었습니다. 
-| - `Motion Transfer` 모델링시, 초기에 프로토타입을 빠르게 구현하고 사용자에게 시각적으로 효과를 보여주는 것이 목표였습니다. 그 후, 데모버젼을 구현하는데 성공하였습니다. 
-
-  <br>
-  
   |<div align='center'>참고 문헌</div>|
   |---|
-  |https://github.com/Daniil-Osokin/lightweight-human-pose-estimation.pytorch|
-  ||
-  |https://github.com/AliaksandrSiarohin/first-order-model|
-  ||
-  |https://github.com/svip-lab/impersonator|
-  ||
-  |https://github.com/Wangt-CN/DisCo?tab=readme-ov-file|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/9f12d371-dcf1-426d-86af-038043a1186d)|
   <br>
   
 </div>
