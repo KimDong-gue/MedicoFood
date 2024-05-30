@@ -1,7 +1,7 @@
 # MedicoFood
 환자 맞춤형 식단 추천 커뮤니티 플랫폼
 
-프로젝트명 . 
+프로젝트명  
 MediCoFood
 주제
 질환별 맞춤형 식단 추천 및 합리적 구매를 위한 통합 커뮤니티
@@ -36,55 +36,7 @@ MediCoFood
 - Back-End
 <br><br>
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">&nbsp;
-  <img src="https://img.shields.io/badge/Mysql-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
-  <img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
-  <img src="https://img.shields.io/badge/Django-215732?style=for-the-badge&logo=Django&logoColor=white">&nbsp;
-  <br>
-
-  - Edit Tool
-  <br><br>
-      <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white">&nbsp;
-      <img src="https://img.shields.io/badge/Mysql Workbench-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
-     <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white">&nbsp;
-      <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white">
-
-<br><br>
-
-## 3. Project Management (24.05.15 ~ 24.05.30)
-### 프로젝트 개발 방식
-  - #### `Front-End`
-
-    `Figma`를 활용하여 UI/UX 설계
-    <br>
-  - #### `Back-End`
-
-    `Django`를 통한 서버 통신, `MySQL`로 데이터베이스 설계.
-    <br>
-  - #### `Tech Architecture`
-![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/fb588255-8ebe-49fd-94ca-651fcb9f653b)
-    <br>
-
-## 4. 프로젝트 상세 내용
-<div align='center'>
-  
-  |기획 의도|
-  |---|
-  ![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/f5d9e6b4-3ad2-4da6-ae51-0d47cc059951)
-
-  <br>
-  
-  |구현|
-  |---|
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/86d67977-388c-4c0a-9612-8c00e3fc2ec8)|
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/83ce4de0-14bc-4b21-ab1a-1c93cb9f7ccd)|
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/93a1a6c7-7d8f-46e9-97df-fb9ae9967885)|
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/8b52685f-005c-45b6-9770-4569624792d7)|
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/d0b21d4a-3afb-412f-b4ad-ddf630979e39)|
-
-
-  <br>
-  
-  |Gantt Chart & Flow Chart|
+  <img src="https://img.shields.io/badge/Mysql-4479A1?style=flat-square&logo=Mysql&logoColor=white">&n과|
   |---|
 
 
