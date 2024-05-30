@@ -35,7 +35,7 @@ MediCoFood
       <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white">&nbsp;
 &nbsp;<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/JavaScript-E2BD40?style=flat-square&logo=JavaScript&logoColor=white">&nbsp;
-      <img src="https://img.shields.io/badge/Chartjs-FFFFFF?style=flat-square&logo=Chartjs&logoColor=white">&nbsp;
+      <img src="https://img.shields.io/badge/Chartjs-FFFFFF?style=flat-square&logo=Chart.js&logoColor=white">&nbsp;
   <br>
 - Back-End
 <br><br>
