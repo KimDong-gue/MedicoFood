@@ -62,40 +62,45 @@ MediCoFood
     <br>
   - #### `Tech Architecture`
 ![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/fb588255-8ebe-49fd-94ca-651fcb9f653b)
-
     <br>
 
 ## 4. 프로젝트 상세 내용
 <div align='center'>
   
-  |목차 & 기획 의도|
+  |기획 의도|
   |---|
-  |![image](https://github.com/KimDong-gue/Second_Team_Project/assets/116249934/0a5f30ca-b9bf-484c-90fd-d438b6b5f842)|
+  ![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/f5d9e6b4-3ad2-4da6-ae51-0d47cc059951)
+
   <br>
   
-  |사용한 Tech & AI Model|
+  |구현|
   |---|
-  |`Media Pipe`, `Motion Transfer`, `Yolo v8 Small`, `Chat GPT`|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/86d67977-388c-4c0a-9612-8c00e3fc2ec8)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/83ce4de0-14bc-4b21-ab1a-1c93cb9f7ccd)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/93a1a6c7-7d8f-46e9-97df-fb9ae9967885)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/8b52685f-005c-45b6-9770-4569624792d7)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/d0b21d4a-3afb-412f-b4ad-ddf630979e39)|
+
+
   <br>
   
   |Gantt Chart & Flow Chart|
   |---|
-  |![image](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/698326d3-6137-4ad4-8e9e-c14a547e4cae)|
-  |![image](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/449f5882-8d72-43cd-8855-6cf162d26e3c)|
+
 
   <br>
   
   | 운동 자세 검출 예시 |
   |---|
-  |![image](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/af7ee6cd-10dc-4dad-b883-f98c51f3c84e)|
+
 
   | 음식 추천 예시 |
   |---|
-  |![image](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/887fb075-0f5e-4018-8d86-6f9d28d1a6a4)|
+
 
   | 운동 예시 |
   |---|
-  |![12321](https://github.com/KimDong-gue/Healthy-Mento/assets/116249934/2a066c26-2d16-4926-bf8a-544f93a2842a)|
+
 
   <br>
   
