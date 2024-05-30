@@ -74,10 +74,11 @@ MediCoFood
   |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/5dd941ea-7110-42fd-bb5d-d74fabf6cdd0)|
   |😊 개선사항: 구글링을 통하여, Ajax 요청에 필요한 데이터를 `data`라는 인자로 전달한 다는 것을 확인하고|
   | Ajax 코드에 `data` 인자를 추가하여, 코드를 구현하여, 추천시스템 작동확인|
+  |---|
   |🥸 시행착오: 프로필 사진을 가져오는 부분에서 이미지가 제대로 표시되지 않거나, AJAX 요청이 실패하는 등의 문제가 발생함|
   |😊 개선사항: 프로필을 가져오는데 Ajax통신이 실패를 해서, 구글링을 해서 account.get_avatar_url로 프로필사진을 가져온다는 
   | 것을 알게되어서, 템플릿코드를 짜니 성공했다. |
-  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/4d9701af-ad71-4d57-adc9-4d97080a33a2)|
+  |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/d2f29b3e-5104-4205-946d-f9480d0a9475)|
   
   
   |<div align='center'>참고 문헌</div>|
