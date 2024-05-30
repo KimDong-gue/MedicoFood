@@ -68,7 +68,7 @@ MediCoFood
 
 
   <br>
-  |<div align='center'>시행 착오 / 개선 사항</div>|
+  |시행 착오 / 개선 사항|
   |---|
   |🥸 시행착오: Ajax 코드 구현시 Data인자를 사용하지 않아서, 추천시스템이 먹통이 되는 상황이 발생|
   |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/5dd941ea-7110-42fd-bb5d-d74fabf6cdd0)|
