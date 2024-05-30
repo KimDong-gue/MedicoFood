@@ -12,14 +12,16 @@ MediCoFood
 기술스택
 성과 획득 역량
 
+# <b> MediCoFood </b>
 
 ### <b>질환별 맞춤형 식단 추천 및 합리적 구매를 위한 통합 커뮤니티 프로젝트</b>
+
 
 <br><br>
 
 ## 1. Collaborator
 - 팀장 : 황지원
-- 팀원 : 강은지, 김동신, 김태현, 조진우, 정수연연
+- 팀원 : 강은지, 김동신, 김태현, 조진우, 정수연
 
 <br><br>
 
@@ -28,29 +30,27 @@ MediCoFood
 <br><br>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white">&nbsp;
-&nbsp;<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white">
+&nbsp;<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white">&nbsp;
+      <img src="https://img.shields.io/badge/JavaScript-E2BD40?style=flat-square&logo=JavaScript&logoColor=white">&nbsp;
   
 - Back-End
 <br><br>
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">&nbsp;
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white">&nbsp;
   <img src="https://img.shields.io/badge/Mysql-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
   <img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
-  <img src="https://img.shields.io/badge/Django-215732?style=for-the-badge&logo=Django&logoColor=white">
+  <img src="https://img.shields.io/badge/Django-215732?style=for-the-badge&logo=Django&logoColor=white">&nbsp;
   <br>
 
   - Edit Tool
   <br><br>
       <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/Mysql Workbench-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
-      <img src="https://img.shields.io/badge/Jupyter Notebook-F37626?style=flat-square&logo=Jupyter&logoColor=white">&nbsp;
-
      <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white">
 
 <br><br>
 
-## 3. Project Management (23.11.03 ~ 23.12.14)
+## 3. Project Management (24.05.15 ~ 24.05.30)
 ### 프로젝트 개발 방식
   - #### `Front-End`
 
@@ -58,13 +58,11 @@ MediCoFood
     <br>
   - #### `Back-End`
 
-    `FastAPI`를 통한 서버 통신, `MySQL`로 데이터베이스 설계.
+    `Django`를 통한 서버 통신, `MySQL`로 데이터베이스 설계.
     <br>
-  - #### `AI Model`
+  - #### `Tech Architecture`
+![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/fb588255-8ebe-49fd-94ca-651fcb9f653b)
 
-    `Python`의 `MediaPipe`와`Motion Transfer` 메인으로 사용자에게 운동에 대해 가이드를 제시하고,
-    `Yolo v8`을 이용하여, 음식을 분류하여, 칼로리와 가지고 있는 음식을 기반으로 `Chat GPT`로 하루 식단을 가이드
-    
     <br>
 
 ## 4. 프로젝트 상세 내용
