@@ -40,6 +40,7 @@ MediCoFood
 <br><br>
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/Mysql-4479A1?style=flat-square&logo=Mysql&logoColor=white">&nbsp;
+      <img src="https://img.shields.io/badge/Django-0A3711?style=flat-square&logo=Django&logoColor=white">&nbsp;
   <br>
 - System Architecture
   |![image](https://github.com/KimDong-gue/MedicoFood/assets/116249934/0080f043-7789-4255-9f80-b56fe61904c8)|
