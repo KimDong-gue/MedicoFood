@@ -59,7 +59,7 @@ def show_life(request):
     return render(request, "main/main.html", {'posts': lives})
 
 # OpenAI API 키 설정
-openai.api_key = 'sk-proj-5SlbdQXgf5ld8EGnvLaaT3BlbkFJW2ScUem0JwU3bmasBoX5'
+openai.api_key = ''
 
 def get_completion(prompt):
     response = openai.ChatCompletion.create(
