@@ -1,0 +1,468 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="height: 100px;"></div>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* Jua 폰트를 적용할 CSS 스타일 */
+    body, .jua-regular {
+        font-family: "Jua", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+    }
+    .product-image {
+        display: block;
+        width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .name {
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .avg_score {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .recommend {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        height: 100px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 0px;
+        text-align: center;
+        font-size: 14px;
+        height: 30px;
+    }
+
+    th:first-child, td:nth-child(3),
+    td:first-child {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    td:first-child, td:nth-child(3) {
+        font-size: 14px;
+        background-color: #e9ecef;
+    }
+
+    .nutrient {
+        width: 100%;
+        height: 100px;
+        display: plex;
+    }
+
+    tr:nth-child(1) > th {
+        text-align: right;
+        font-size: 13px;
+        padding-right: 20px;
+        border: none;
+    }
+    .box1 { 
+        color: black;
+        text-align:center;
+    }
+
+    .gptTable {
+        display: flex;
+        flex-direction: column;
+        border: 0.1rem solid #e6e6e6;
+        background-color: #ffffff;
+        border-radius: 1rem; /* 원하는 정도의 둥근 정도로 조정 */
+        margin: 1.2rem 2rem 0.2rem;
+        padding: 1.6rem;
+        padding-bottom: 0;
+        margin: 0 2rem;
+    }
+
+    .gptImgText {
+        display: flex;
+        align-items: center;
+        height: 2rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+        color: #1a1a1a;
+        position: relative;
+    }
+    
+
+
+    .gptImg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0.6rem;
+        pointer-events: none;
+    }
+    
+    .gptImg {
+        content: '';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        background-image: url('https://yaimg.yanolja.com/stay/static/images/img_ai_emoji-48.gif');
+        background-repeat: no-repeat;
+        background-size: 2.2rem;
+        background-position: center;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+
+    .pone {
+        display: flex;
+        position: relative;
+        align-items: center;
+        background-color: #f2f2f2;
+        border: 0.1rem solid #e6e6e6;
+        border-radius: 0.6rem 0.6rem 0 0;
+        height: 2.8rem;
+        margin-top: 1.1rem;
+        box-sizing: border-box;
+        user-select: none;
+    }
+    
+    .pone > div {
+        flex: 1;
+        display: flex;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.0rem;
+        font-weight: normal;
+        line-height: 1.4rem;
+        color: #1a1a1a;
+        cursor: pointer;
+    }
+    
+    .pone > div.selected {
+        font-weight: 400;
+        background-color: white; /* 선택된 버튼의 배경색을 흰색으로 변경 */
+    }
+    
+    .pone > div:nth-of-type(n + 2) {
+        left: 50%;
+    }
+    
+    .pone:before {
+        content: '';
+        display: flex;
+        position: absolute;
+        flex: 1;
+        left: -0.1rem;
+        top: -0.1rem;
+        width: 50%;
+        height: calc(100% + 0.2rem);
+        background-color: #f2f2f2;
+        border: 0.1rem solid #e6e6e6;
+        border-bottom: 0.1rem solid #ffffff;
+        border-radius: 0.6rem 0.6rem 0 0;
+        transition: left 100ms ease-in-out;
+    }
+    
+    
+    /* 선택된 항목을 강조하는 스타일 */
+.selected {
+    font-weight: bold;
+}
+
+/* 숨겨진 요소 */
+.hidden {
+    display: none;
+}
+
+.content {
+    margin: 15px 10px; /* 위아래 10px, 좌우 5px의 마진을 추가 */
+}
+
+
+</style>
+
+<a href="{{product.site_url}}" class="box1">
+    <img src="{{product.image_url}}" class="product-image">
+    <p >해당 제품 사이트로 이동 ▶️</p>
+</a>
+
+<div class="like-container">
+    <button class="like-button" data-product-id="{{ product.product_id }}">
+        {% if user.is_authenticated %}
+            {% if is_liked %}
+                좋아요 취소
+            {% else %}
+                좋아요
+            {% endif %}
+        {% else %}
+            좋아요
+        {% endif %}
+    </button>
+</div>
+
+<div class="name-container">
+    <p class="name">
+        <span class="heart-icon">
+            {% if is_liked %}
+                ❤️
+            {% else %}
+                🖤
+            {% endif %}
+        </span>
+        [{{ product.patient_category }}] {{ product.product_name }}
+    </p>
+</div>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script>
+    {% if product.patient_category == '당뇨' %}
+    let myCt = document.getElementById('myChart');
+    let myChart = new Chart(myCt, {
+        type: 'bar',
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                subtitle: {
+                    display: true,
+                    text: '[당뇨환자를 위한 당 함량 기준 표(g)]'
+                }
+            }
+        },
+        data: {
+            labels: ['당 권장 섭취량', '해당상품', '당사 평균'],
+            datasets: [
+                {
+                    label: '65kg 성인 한끼 기준',
+                    data: [3.33, {{ product.sugars }}, {{ avg_sugars|default:0 }}],
+                    backgroundColor: ['#ccfcfc', '#2ecc71', '#ccfcfc'],
+                    borderColor: 'white',
+                    maxBarThickness: 30
+                }
+            ]
+        },
+    });
+    {% endif %}
+
+    {% if product.patient_category == '신장질환' %}
+    let myCt = document.getElementById('myChart');
+    let myChart = new Chart(myCt, {
+        type: 'bar',
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                subtitle: {
+                    display: true,
+                    text: '신장질환자를 위한 나트륨 기준 표(mg)'
+                }
+            }
+        },
+        data: {
+            labels: ['나트륨 권장 섭취량', '해당상품', '당사 평균'],
+            datasets: [
+                {
+                    label: '65kg 성인 한끼 기준',
+                    data: [266, {{ product.na }}, {{ avg_na|default:0 }}],
+                    backgroundColor: ['#ccfcfc', '#2ecc71', '#ccfcfc'],
+                    borderColor: 'white',
+                    borderWidth: 2,
+                    maxBarThickness: 30
+                }
+            ]
+        },
+    });
+    {% endif %}
+
+    {% if product.patient_category == '암질환' %}
+    let myCt = document.getElementById('myChart');
+    let myChart = new Chart(myCt, {
+        type: 'bar',
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                subtitle: {
+                    display: true,
+                    text: '암 질환자를 위한 단백질 유래열량 기준표(kcal)'
+                }
+            }
+        },
+        data: {
+            labels: ['최소기준치 ', '해당 상품', '당사 평균'],
+            datasets: [
+                {
+                    label: '65kg 성인 한끼 기준',
+                    data: [{{product.calorie}} * 0.18 , {{product.protein}} * 4 , {{ avg_protein|default:0 }} *4], // 단백질은 1g당 4kcal (유래열량), 기준치 열량의 18% 이상 ( 칼로리 * 0.18 )
+                    backgroundColor: ['#ccfcfc', '#2ecc71', '#ccfcfc'],
+                    borderColor: 'white',
+                    borderWidth: 2,
+                    maxBarThickness: 30
+                }
+            ]
+        },
+    });
+    {% endif %}
+</script>
+
+{% if product.patient_category == '당뇨' %}
+    <p class="recommend">당뇨환자가 유의해야 할 영양성분은 <b>'당'</b> 입니다</p>
+{% endif %}
+
+{% if product.patient_category == '신장질환' %}
+    <p class="recommend">신장질환자가 유의해야 할 영양성분은 <b>'나트륨'</b> 입니다 </p>
+{% endif %}
+
+{% if product.patient_category == '암질환' %}
+    <p class="recommend">암질환자가 유의해야 할 영양성분은 <b>'단백질'</b> 입니다 </p>
+{% endif %}
+
+<div class="nutrient">
+    <table>
+        <tbody>
+            <tr>
+                <th colspan="2" style="text-align:left;">
+                    영양성분표
+                </th>
+                <th colspan="2">
+                    (100g기준)
+                </th>
+            </tr>
+            <tr>
+                <td>열량</td>
+                <td>{{ product.calorie }} (kcal)</td>
+                <td>탄수화물</td>
+                <td>{{ product.carbohydrate }} (g)</td>
+            </tr>
+            <tr>
+                <td>단백질</td>
+                <td>{{ product.protein }} (g)</td>
+                <td>지방</td>
+                <td>{{ product.fat }} (g)</td>
+            </tr>
+            <tr>
+                <td>당</td>
+                <td>{{ product.sugars }} (g)</td>
+                <td>나트륨</td>
+                <td>{{ product.na }} (mg)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.like-button').click(function() {
+            var button = $(this);
+            var productId = button.data('product-id');
+
+            $.ajax({
+                url: '/main/product/' + productId + '/like/',
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if (button.text() === '좋아요') {
+                        button.text('좋아요 취소');
+                        $('.heart-icon').text('❤️');
+                    } else {
+                        button.text('좋아요');
+                        $('.heart-icon').text('🖤');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('좋아요 토글 에러:', error);
+                }
+            });
+        });
+    });
+
+    
+    
+</script>
+<div style="height: 50px;"></div>
+{% if product.gpt_positive %}  
+
+<div class = "gptTable">
+    
+    <div class = "gptImgText">
+        <div class = "gptImg"> </div>
+        <div class = "gptInfo">ChatGPT로 리뷰를 요약해봤어요</div>
+    </div>
+
+ 
+    <!-- 버튼들 -->
+<div class="pone"> 
+    <div class="selected" id="positiveReviewButton">긍정 리뷰 요약</div>
+    <div id="negativeReviewButton">부정 리뷰 요약</div>
+</div>
+
+<!-- 내용 -->
+<div id="positiveReviewContent" class="content">{{product.gpt_positive}}</div>
+<div id="negativeReviewContent" class="content hidden">{{product.gpt_negative}}</div>
+{% else %}
+{% endif %}
+<script>
+// 버튼 요소와 내용 요소를 가져옴
+const positiveButton = document.getElementById('positiveReviewButton');
+const negativeButton = document.getElementById('negativeReviewButton');
+const positiveContent = document.getElementById('positiveReviewContent');
+const negativeContent = document.getElementById('negativeReviewContent');
+
+// 긍정 리뷰 버튼 클릭 시
+positiveButton.addEventListener('click', function() {
+    positiveButton.classList.add('selected'); // 선택된 스타일 적용
+    negativeButton.classList.remove('selected'); // 선택되지 않은 스타일 제거
+    positiveContent.classList.remove('hidden'); // 내용 보이기
+    negativeContent.classList.add('hidden'); // 다른 내용 숨기기
+});
+
+// 부정 리뷰 버튼 클릭 시
+negativeButton.addEventListener('click', function() {
+    negativeButton.classList.add('selected'); // 선택된 스타일 적용
+    positiveButton.classList.remove('selected'); // 선택되지 않은 스타일 제거
+    negativeContent.classList.remove('hidden'); // 내용 보이기
+    positiveContent.classList.add('hidden'); // 다른 내용 숨기기
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div style="height: 60px;"></div>
+
+{% endblock %}
+
+

@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="https://webfontworld.github.io/BMJua/BMJua.css" rel="stylesheet">
+    <style>
+        .post_delete, .comments_delete {
+            color: #000000;
+        }
+        .comments_deletee {
+            color: red;
+        }
+        .userupimg {
+            text-align: center;
+        }
+        .smallp {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        .middp {
+            font-size: 13px;
+        }
+        .danger {
+            text-align: right;
+            margin-right: 30px;
+        }
+        .btn-con {
+            background-color: #2ECC71;
+            color: #000000;
+            width: 100px;
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            font-weight: 200;
+        }
+        .btn-con a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            
+        }
+        .full-box {
+            display: flex;
+            width: 460px;
+            height: 40px;
+            background-color: #fffefc;
+            position: fixed;
+            bottom: 65px;
+            z-index: 999;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .comment-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .comment-container img {
+            margin-right: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        .comment-content {
+            flex: 1;
+        }
+        .defaultimg {
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<div style="height: 100px;"></div>
+
+{% if board.cate == "일상 공유" %}
+    <p class="smallp"><b>{{ board.cate }}</b><span style="font-size: 15px;">❤️</span></p>
+{% elif board.cate == "레시피 공유" %}
+    <p class="smallp"><b>{{ board.cate }}</b><span style="font-size: 15px;">🍳</span></p>
+{% endif %}
+
+<h4>{{ board.title }}</h4>
+
+<div class="danger">
+    <p class="middp">{{ board.board_date|date:"Y-m-d" }} <b>{{ board.user }}</b></p>
+</div>
+
+<p>{{ board.content }}</p>
+
+{% if board.file %}
+<div class="userupimg">
+    <img src="{{ board.file.url }}" style="width: 300px; height: auto;">
+</div>
+{% endif %}
+
+<br>
+
+<div class="danger">
+    {% if request.user == board.user %}
+        <a class="btn btn-danger" href="{% url 'post_delete' board.board_id %}">삭제하기</a>
+        <a class="btn btn-warning" href="{% url 'post_edit' board.board_id %}">수정하기</a>
+    {% endif %}
+</div>
+
+<hr>
+
+<b>댓글 {{ comments|length }} </b>
+
+{% for comment_data in comments_with_profiles %}
+    {% with comment=comment_data.comment profile_image=comment_data.profile_image %}
+        <div class="comment-container">
+            {% if profile_image %}
+                <img class="defaultimg" src="{{ profile_image }}" alt="{{ comment.user }}의 프로필 이미지">
+            {% else %}
+                <img class="defaultimg" src="{% static 'default_profile_image.png' %}" alt="기본 프로필 이미지">
+            {% endif %}
+            <div class="comment-content">
+                <p><strong>{{ comment.user }}</strong></p>
+                <p>{{ comment.content }}</p>
+                <i>{{ comment.comment_date|date:"m월d일 H:i" }}
+                {% if request.user == comment.user or request.user == board.user %}
+                    <a class="comments_deletee" href="{% url 'comments_delete' board.pk comment.pk %}">삭제</a>
+                {% endif %}
+                <a class="comments_delete" href="#" onclick="showReplyForm({{ comment.pk }}); return false;">답댓글</a>
+                </i>
+                <div id="reply-form-{{ comment.pk }}" class="reply-form" style="display: none; margin-left: 20px;">
+                    <form method="post" action="{% url 'reply_create' board.board_id comment.pk %}">
+                        {% csrf_token %}
+                        <p>{{ request.user }}</p>
+                        <input type="text" name="reply" placeholder="답댓글">
+                        <button type="submit">등록</button>
+                    </form>
+                </div>
+
+                {% for reply_data in comment_data.replies %}
+                    <div style="margin-left: 40px;">
+                        {% if reply_data.profile_image %}
+                            <img class="defaultimg" src="{{ reply_data.profile_image }}" alt="{{ reply_data.reply.user }}의 프로필 이미지" style="width: 30px; height: 30px;">
+                        {% else %}
+                            <img class="defaultimg" src="{% static 'default_profile_image.png' %}" alt="기본 프로필 이미지" style="width: 30px; height: 30px;">
+                        {% endif %}
+                        <p><strong>{{ reply_data.reply.user }}</strong>: {{ reply_data.reply.content }}
+                            <span style="font-size: 11px;"><i>{{ reply_data.reply.reply_date|date:"m월d일 H:i" }}
+                            {% if request.user == reply_data.reply.user or request.user == comment.board.user %}
+                                <a class="comments_deletee" href="{% url 'reply_delete' board.board_id comment.pk reply_data.reply.pk %}">삭제</a>
+                            {% endif %}
+                        </i></span>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endwith %}
+{% endfor %}
+<hr>
+
+<form method="post" action="{% url 'comments_create' board.board_id %}">
+    {% csrf_token %}
+    <div style="display: flex; align-items: center; justify-content: center;">
+        {% if extra_data.provider == 'kakao' %}
+            {% if extra_data.properties.profile_image %}
+                <img class="defaultimg" src="{{ extra_data.properties.profile_image }}" alt="카카오 프로필 이미지">
+            {% elif extra_data.kakao_account.profile.profile_image_url %}
+                <img class="defaultimg" src="{{ extra_data.kakao_account.profile.profile_image_url }}" alt="카카오 프로필 이미지">
+            {% endif %}
+        {% elif extra_data.provider == 'naver' %}
+            {% if extra_data.profile_image %}
+                <img class="defaultimg" src="{{ extra_data.profile_image }}" alt="네이버 프로필 이미지">
+            {% endif %}
+        {% else %}
+            <img class="defaultimg" src="{% static 'default_profile_image.png' %}" alt="기본 프로필 이미지">
+        {% endif %}
+        <p style="margin-right: 20px;">{{ request.user }}</p>
+        <input type="text" name="comment" placeholder="댓글" style="flex: 1; margin-right: 20px;">
+        <button type="submit">등록</button>
+    </div>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</form>
+
+
+<script>
+    function showReplyForm(commentId) {
+        var form = document.getElementById('reply-form-' + commentId);
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+
+<div class="full-box">
+    <div class="btn-con">
+        <a href="{% url "board" %}">
+            <b>목록</b>
+        </a>
+    </div>
+</div>
+
+<div style="height: 120px;"></div>
+
+{% endblock %}

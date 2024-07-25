@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* Jua 폰트를 적용할 CSS 스타일 */
+    body, .jua-regular {
+        font-family: "Jua", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+    }
+    .btn-con {
+        background-color:#2ECC71;
+        color: #000000;
+        width:100px;
+        height:40px;
+        display: flex;
+        justify-content: space-around;
+        /* 아이콘 간격 조절 */
+        align-items: center;
+        /* 수직 중앙 정렬 */
+        border-radius: 10px;
+        font-weight: 200;
+    }
+    .btn-con a {
+        display: flex; /* 추가: 링크 안의 내용을 Flexbox로 처리 */
+        justify-content: center; /* 추가: 가로 중앙 정렬 */
+        align-items: center; /* 추가: 세로 중앙 정렬 */
+        width: 100%; /* 추가: 링크가 btn-con의 전체 너비를 차지하도록 설정 */
+        height: 100%; /* 추가: 링크가 btn-con의 전체 높이를 차지하도록 설정 */
+        text-decoration: none; /* 선택: 링크의 기본 밑줄 제거 */
+    }
+    .full-box {
+        display: flex;
+        width: 460px;
+        height: 50px;
+        background-color: #fffefc;
+        position: fixed;
+        bottom: 60px;
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        justify-content: center; /* 추가: 부모 요소의 내용을 가로로 중앙 정렬 */
+    }
+
+    ul li {
+                    
+        display: inline;
+        font-size: 14px;
+        color: #77777A;
+        
+    }
+    
+    em {
+        color: #FC4C4E;
+        font-size: 20px; font-weight: bold;
+        margin-left: 4px;
+    }
+    
+    p {-27
+        color : #222225
+        font-size: 20px; font-weight: bold;
+    }
+    .add-post {
+        color: #000000;
+    }
+    .post_detail {
+        color: #000000;
+    }
+    .btn-con {
+        background-color: #2ECC71;
+        color: #000000;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;
+        font-weight: 200;
+    }
+    .full-box {
+        display: flex;
+        width: 460px;
+        height: 50px;
+        background-color: #fffefc;
+        position: fixed;
+        bottom: 60px;
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-con a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+    }
+    .board-btn-con {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .smallp {
+        font-size: 15px;
+        margin-bottom: 0;
+        margin-left: 10px;
+    }
+    p {
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+</style>
+
+
+<body>
+
+    <div style="height:80px;"> 
+    </div>
+
+    <div style="padding:10px; text-align:center;">
+        <form method="post" action="{% url 'board_search' %}" class="form-inline d-inline-flex">
+            {% csrf_token %}
+            <input id="searchin" class="form-control mr-sm-2" type="search" aria-label="Search" name="q" value="{{q}}">
+            <button type="submit" class="btn btn-primary">검색</button>
+        </form>
+    </div>
+
+    {% if board_search%}
+    <h4>검색하신 "{{ q }}"에 대한 결과 입니다.</h4>
+    {% for board in board_search %}
+    <div class="col-12">
+        <div class="card">
+            <a style="color:#000000;" href="{% url 'boardpost_detail' board.board_id %}">
+                {% if board.cate == "일상 공유" %}
+                <p class="smallp"><b style="color:#2ECC71;">{{ board.cate }}</b><span style="font-size: 15px;">❤️</span></p>
+                {% elif board.cate == "레시피 공유" %}
+                <p class="smallp"><b style="color:#2ECC71;">{{ board.cate }}</b><span style="font-size: 15px;">🍳</span></p>
+                {% endif %}
+                {% if board.file %}
+                <div style="margin-left:10px;">
+                <img src="{{ board.file.url }}" alt="이미지가 나와야하는 부분" style="width:auto%; height:200px;">
+                </div>
+                {% endif %}
+                <p style="margin-left:10px;"><b>{{ board.title }}</b></p>
+                <p class="smallp" style="font-size:13px;">{{ board.board_date|date:"Y-m-d" }}<b> [{{ board.user }}]</b></p>
+                <p class="smallp">{{ board.content|truncatechars:100 }}</p>
+            </a>
+        </div>
+    </div>
+    <hr>
+{% endfor %}
+    {% else %}
+    <div class = "content">
+        <p>
+            <em >'{{q}}'</em>
+            에 대한 검색결과가 없습니다.
+        </p>
+        <ul>
+            <li>
+                -단어의 철자가 정확한지 확인해 보세요. <br>
+            </li>
+            <li>
+                -한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 보세요. <br>
+            </li>
+            <li>
+                -검색어의 단어 수를 줄이거나, 일반적인 검색어로 다시 검색해 보세요. <br>
+            </li>
+            <li>
+                -두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 보세요. <br>
+            </li>
+            <li>
+                -검색 옵션을 변경해서 다시 검색해 보세요.
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+    <div class="full-box">
+        <div class="btn-con">
+            <a href="{% url "board" %}">
+                <b>목록</b>
+            </a>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
